@@ -52,6 +52,7 @@ public class testt {
 					}
 					
 					output += "total words : " + counter + "/r/n";
+					System.out.println(output);
 					
 					Files.write(Paths.get("C:\\\\Users\\\\Administrator\\\\Desktop\\\\output.txt"), Collections.singleton(output), StandardCharsets.UTF_8, StandardOpenOption.APPEND);
 					

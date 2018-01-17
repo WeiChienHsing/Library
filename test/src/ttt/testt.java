@@ -32,6 +32,7 @@ public class testt {
 		paths.forEach(x -> {
 			
 			if (!Files.isDirectory(x)) {
+				System.out.println(x);		
 				System.out.println(x);			
 				
 				Set<Token> tokenSet = new HashSet<Token>();
@@ -49,10 +50,11 @@ public class testt {
 						//System.out.println(token.getAllFeatures());			
 						output += token.getBaseForm() + "\t" + "placeholder\r\n";
 						counter++;
+						System.out.println(counter);
 					}
 					
 					output += "total words : " + counter + "/r/n";
-					System.out.println(output);
+					
 					
 					Files.write(Paths.get("C:\\\\Users\\\\Administrator\\\\Desktop\\\\output.txt"), Collections.singleton(output), StandardCharsets.UTF_8, StandardOpenOption.APPEND);
 					

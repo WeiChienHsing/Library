@@ -1,0 +1,38 @@
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+public class Test {
+    public static void main(String[] args) throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        Student student = new Student();
+        student.setStudentName("hahah");
+        student.setStudentAddress("123");
+        String json = mapper.writeValueAsString(student);
+        System.out.println(json);
+    }
+
+    @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+    static class Student {
+        private String studentName;
+        @JsonProperty("studentAddress")
+        private String studentAddress;
+
+        public String getStudentName() {
+            return studentName;
+        }
+
+        public void setStudentName(String studentName) {
+            this.studentName = studentName;
+        }
+
+        public String getStudentAddress() {
+            return studentAddress;
+        }
+
+        public void setStudentAddress(String studentAddress) {
+            this.studentAddress = studentAddress;
+        }
+    }
+}
